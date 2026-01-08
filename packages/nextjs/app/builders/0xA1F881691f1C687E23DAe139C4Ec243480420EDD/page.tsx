@@ -54,7 +54,7 @@ const builderData = {
 };
 
 const TechBadge = ({ tech }: { tech: string }) => (
-  <span className="badge badge-outline badge-sm hover:badge-primary transition-colors cursor-default">{tech}</span>
+  <span className="badge badge-outline badge-sm hover:badge-primary">{tech}</span>
 );
 const address = "0xA1F881691f1C687E23DAe139C4Ec243480420EDD" as AddressType;
 
