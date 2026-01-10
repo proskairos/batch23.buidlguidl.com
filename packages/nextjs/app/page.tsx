@@ -1,12 +1,105 @@
-"use client";
-
 import Link from "next/link";
 import type { NextPage } from "next";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
-const Home: NextPage = () => {
+type Builder = {
+  id: string;
+  address: string;
+  checkInCount: number;
+  firstCheckIn: number;
+  lastCheckIn: number;
+};
+
+const SUBGRAPH_URL = "https://api.studio.thegraph.com/query/1722630/batch-23-buidlguidl/version/latest";
+
+const GET_BUILDERS_QUERY = `
+  query GetBuilders {
+    builders(orderBy: lastCheckIn, orderDirection: desc) {
+      id
+      address
+      checkInCount
+      firstCheckIn
+      lastCheckIn
+    }
+  }
+`;
+
+const build_checkins_query = (builderAddress: string) => {
+  return `{
+    builder(id: ${builderAddress}) {
+      address
+      checkInCount
+      firstCheckIn
+      lastCheckIn
+      checkIns {
+        checkInContract
+        transactionHash
+      }
+    }
+  }`;
+};
+
+async function getBuilders(): Promise<any[]> {
+  const res = await fetch(SUBGRAPH_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: GET_BUILDERS_QUERY,
+    }),
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
+  });
+
+  if (!res.ok) {
+    // throw new Error(`Failed to fetch builders: ${res.statusText}`);
+    return [];
+  }
+
+  const { data } = await res.json();
+  const builders: Builder[] = data?.builders || [];
+  const buildersPromises = builders.map(builder => {
+    return getCheckinsPerBuilder(builder.address);
+  });
+
+  const checkIns: any[] = await Promise.all(buildersPromises);
+  console.log("checkins", checkIns);
+  return checkIns;
+}
+
+async function getCheckinsPerBuilder(builderAddress: string): Promise<any[]> {
+  const res = await fetch(SUBGRAPH_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: build_checkins_query(builderAddress),
+    }),
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
+  });
+  console.log("checkins res", res);
+
+  if (!res.ok) {
+    // throw new Error(`Failed to fetch builders: ${res.statusText}`);
+    return [];
+  }
+
+  const { data } = await res.json();
+  console.log("checkins data", data);
+  return data || [];
+}
+
+const Home: NextPage = async () => {
+  const builders: Builder[] = await getBuilders();
+
   return (
     <>
+      <div className="absolute r-0 l-0 b-0 t-0 break-words bg-black">
+        {builders.map(builder => {
+          return String(builder);
+        })}
+      </div>
       <div className="flex items-center flex-col grow pt-10">
         <div className="px-5">
           <h1 className="text-center">
