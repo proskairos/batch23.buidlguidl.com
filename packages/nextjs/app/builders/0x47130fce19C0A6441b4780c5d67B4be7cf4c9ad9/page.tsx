@@ -1,10 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { Address } from "@scaffold-ui/components";
 import type { NextPage } from "next";
 
-const Home: NextPage = () => {
+const Proskairos: NextPage = () => {
   return (
     <div className="flex items-center flex-col flex-grow pt-10 px-4">
       <div className="w-full max-w-4xl">
@@ -119,4 +117,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Proskairos;
