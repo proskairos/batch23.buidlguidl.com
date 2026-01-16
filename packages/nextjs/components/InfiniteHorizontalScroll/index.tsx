@@ -1,4 +1,5 @@
 import { CSSProperties, ReactNode } from "react";
+import "./MarqueeAnimation.css";
 
 type InfiniteHorizontalScrollProps = {
   children: ReactNode | ReactNode[];

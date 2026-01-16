@@ -1,6 +1,7 @@
 "use client";
 
 import React, { CSSProperties, ReactElement, useEffect, useRef, useState } from "react";
+import { useDebounceCallback } from "usehooks-ts";
 
 interface RepeaterProps {
   containerClasses?: string;
@@ -16,23 +17,26 @@ const Repeater: React.FC<RepeaterProps> = ({ containerClasses = "", containerSty
   const [childHeight, setChildHeight] = useState(0);
   const [containerHeight, setContainerHeight] = useState(0);
 
-  useEffect(() => {
-    function measure() {
-      if (containerRef.current) {
-        setContainerHeight(containerRef.current.clientHeight);
-      }
+  const debouncedMeasure = useDebounceCallback(() => {
+    if (containerRef.current) {
+      setContainerHeight(containerRef.current.clientHeight);
     }
+  }, 120);
 
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
+  useEffect(() => {
+    debouncedMeasure();
+    window.addEventListener("resize", debouncedMeasure);
+    return () => {
+      window.removeEventListener("resize", debouncedMeasure);
+      debouncedMeasure.cancel?.();
+    };
+  }, [debouncedMeasure]);
 
   useEffect(() => {
     if (childRef.current) {
       setChildHeight(childRef.current.clientHeight);
     }
-  }, [children]);
+  }, [children, childRef.current?.textContent]);
 
   useEffect(() => {
     if (childHeight > 0 && containerHeight > 0) {
@@ -42,7 +46,7 @@ const Repeater: React.FC<RepeaterProps> = ({ containerClasses = "", containerSty
   return (
     <div ref={containerRef} className={containerClasses} style={containerStyle}>
       {/* Hidden child for measuring */}
-      <div className="absolute hidden pointer-events-none h-auto overflow-visible whitespace-nowrap">
+      <div className="absolute -left-[9999px] -top-[9999px] invisible -z-50 pointer-events-none h-auto overflow-visible whitespace-nowrap">
         <div ref={childRef}>{children}</div>
       </div>
 

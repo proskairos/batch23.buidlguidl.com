@@ -1,0 +1,17 @@
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.animate-marquee {
+  animation-name: marquee;
+
+  animation-duration: var(--animate-marquee-duration, 6000s);
+  animation-timing-function: var(--animate-marquee-timing, linear);
+  animation-iteration-count: var(--animate-marquee-iteration, infinite);
+  animation-direction: var(--animate-marquee-direction, normal);
+  animation-delay: var(--animate-marquee-delay, 0s);
+}

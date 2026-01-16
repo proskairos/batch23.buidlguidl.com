@@ -1,3 +1,4 @@
+import "./HomeStyles.css";
 import { InfiniteHorizontalScroll } from "~~/components/InfiniteHorizontalScroll";
 import Repeater from "~~/components/Repeater";
 import { type BuilderWithCheckIn, getBuildersAndCheckIns } from "~~/services/graph/client";

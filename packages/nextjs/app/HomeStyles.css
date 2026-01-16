@@ -1,0 +1,43 @@
+/* Fade in Background */
+@keyframes fadeIn-home {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-home {
+  opacity: 0;
+  animation: fadeIn-home 0.7s 1s ease-in forwards;
+  will-change: opacity;
+}
+
+/* Gradient Up - Background */
+@keyframes gradientUp {
+  0% {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    bottom: 100%;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+  }
+}
+.animate-gradient-up {
+  animation: gradientUp 3s ease-in-out infinite;
+}
