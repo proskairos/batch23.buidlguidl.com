@@ -127,7 +127,6 @@ const MateoDi9zProfilePage: NextPage = () => {
                     <span className="text-gray-600 dark:text-gray-500">$ </span>
                     <span className="text-blue-600 dark:text-blue-400">web3.eth.getAccount</span>()
                     <br />
-                    <span className="text-yellow-600 dark:text-yellow-400">→</span>{" "}
                     <Address address={BUILDER_ADDRESS} format="short" />
                     <span className="ml-2 text-green-600 dark:text-green-400 animate-pulse">●</span>
                     <span className="text-green-600 dark:text-green-400 text-sm ml-1">CONNECTED</span>
