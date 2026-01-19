@@ -1,5 +1,3 @@
-"use client";
-
 // --- MateoDi9z profile page ---
 import Link from "next/link";
 import { Address } from "@scaffold-ui/components";
@@ -41,9 +39,9 @@ const PROFILE_DATA = {
   ],
 };
 
-const ProfilePage: NextPage = () => {
+const MateoDi9zProfilePage: NextPage = () => {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden font-mono">
+    <div className="min-h-screen bg-white dark:bg-black relative overflow-hidden font-mono">
       {/* Matrix-style background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -52,16 +50,18 @@ const ProfilePage: NextPage = () => {
             className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(rgba(0,255,0,0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,255,0,0.1) 1px, transparent 1px)
+                linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
               `,
               backgroundSize: "20px 20px",
             }}
           ></div>
         </div>
 
-        <div className="absolute top-4 right-4 text-green-400/30 text-xs animate-pulse">{">"} SYSTEM_ONLINE</div>
-        <div className="absolute bottom-4 left-4 text-green-400/30 text-xs">{"$"} dev@web3:~</div>
+        <div className="absolute top-4 right-4 text-gray-500/60 dark:text-green-400/30 text-xs animate-pulse">
+          {">"} SYSTEM_ONLINE
+        </div>
+        <div className="absolute bottom-4 left-4 text-gray-500/60 dark:text-green-400/30 text-xs">{"$"} dev@web3:~</div>
       </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen py-10 px-5">
@@ -69,52 +69,52 @@ const ProfilePage: NextPage = () => {
           {/* Terminal-style Profile Card */}
           <div className="group relative">
             {/* Terminal window */}
-            <div className="bg-gray-900 rounded-lg border border-gray-700 shadow-2xl overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-900 rounded-lg border border-gray-300 dark:border-gray-700 shadow-2xl overflow-hidden">
               {/* Terminal header */}
-              <div className="bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-700">
+              <div className="bg-gray-200 dark:bg-gray-800 px-4 py-3 flex items-center justify-between border-b border-gray-300 dark:border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <div className="text-gray-400 text-sm font-mono">mateo_profile.tsx</div>
-                <div className="text-gray-500 text-xs">●</div>
+                <div className="text-gray-600 dark:text-gray-400 text-sm font-mono">mateo_profile.tsx</div>
+                <div className="text-gray-500 dark:text-gray-500 text-xs">●</div>
               </div>
 
               {/* Terminal content */}
-              <div className="bg-black p-6 text-green-400">
+              <div className="bg-white dark:bg-black p-6 text-gray-800 dark:text-green-400">
                 {/* Terminal prompt style header */}
                 <div className="mb-6">
                   <div className="text-left mb-4">
-                    <span className="text-blue-400 mr-2">const</span>
-                    <span className="text-yellow-400">developer</span> ={"{"} <br />
-                    <span className="ml-4 text-gray-400">name:</span>{" "}
-                    <span className="text-green-300">&quot;{PROFILE_DATA.name}&quot;</span>,
+                    <span className="text-blue-600 dark:text-blue-400 mr-2">const</span>
+                    <span className="text-yellow-600 dark:text-yellow-400">developer</span> ={"{"} <br />
+                    <span className="ml-4 text-gray-600 dark:text-gray-400">name:</span>{" "}
+                    <span className="text-green-600 dark:text-green-300">&quot;{PROFILE_DATA.name}&quot;</span>,
                     <br />
-                    <span className="ml-4 text-gray-400">role:</span>{" "}
-                    <span className="text-green-300">&quot;{PROFILE_DATA.title}&quot;</span>,
+                    <span className="ml-4 text-gray-600 dark:text-gray-400">role:</span>{" "}
+                    <span className="text-green-600 dark:text-green-300">&quot;{PROFILE_DATA.title}&quot;</span>,
                     <br />
-                    <span className="ml-4 text-gray-400">location:</span>{" "}
-                    <span className="text-green-300">&quot;{PROFILE_DATA.location}&quot;</span>,
+                    <span className="ml-4 text-gray-600 dark:text-gray-400">location:</span>{" "}
+                    <span className="text-green-600 dark:text-green-300">&quot;{PROFILE_DATA.location}&quot;</span>,
                     <br />
-                    <span className="ml-4 text-gray-400">status:</span>{" "}
-                    <span className="text-green-300">&quot;{PROFILE_DATA.status}&quot;</span>,
+                    <span className="ml-4 text-gray-600 dark:text-gray-400">status:</span>{" "}
+                    <span className="text-green-600 dark:text-green-300">&quot;{PROFILE_DATA.status}&quot;</span>,
                     <br />
-                    <span className="ml-4 text-gray-400">passion:</span>{" "}
-                    <span className="text-green-300">&quot;Building Web3 dApps&quot;</span>
+                    <span className="ml-4 text-gray-600 dark:text-gray-400">passion:</span>{" "}
+                    <span className="text-green-600 dark:text-green-300">&quot;Building Web3 dApps&quot;</span>
                     <br />
                     {"}"} <br />
                   </div>
 
                   {/* ASCII Art Avatar */}
                   <div className="text-center mb-4">
-                    <div className="inline-block text-lg text-cyan-400 leading-tight">
+                    <div className="inline-block text-lg text-cyan-600 dark:text-cyan-400 leading-tight">
                       {"    ╭─────────╮"} <br />
                       {"│"} <span className="px-6">{"◕   ◕"}</span> {"│"} <br />
                       {"│"} <span className="px-8">{"∪"}</span> {"│"} <br />
                       {"╰─────────╯"}
                       <br />
-                      <span className="text-green-400 text-sm">
+                      <span className="text-green-600 dark:text-green-400 text-sm">
                         {"//"} {PROFILE_DATA.name.split(" ")[0]} - Web3 Dev
                       </span>
                     </div>
@@ -124,51 +124,56 @@ const ProfilePage: NextPage = () => {
                 {/* Terminal command style wallet */}
                 <div className="mb-6">
                   <div className="text-left">
-                    <span className="text-gray-500">$ </span>
-                    <span className="text-blue-400">web3.eth.getAccount</span>()
+                    <span className="text-gray-600 dark:text-gray-500">$ </span>
+                    <span className="text-blue-600 dark:text-blue-400">web3.eth.getAccount</span>()
                     <br />
-                    <span className="text-yellow-400">→</span> <Address address={BUILDER_ADDRESS} format="short" />
-                    <span className="ml-2 text-green-400 animate-pulse">●</span>
-                    <span className="text-green-400 text-sm ml-1">CONNECTED</span>
+                    <span className="text-yellow-600 dark:text-yellow-400">→</span>{" "}
+                    <Address address={BUILDER_ADDRESS} format="short" />
+                    <span className="ml-2 text-green-600 dark:text-green-400 animate-pulse">●</span>
+                    <span className="text-green-600 dark:text-green-400 text-sm ml-1">CONNECTED</span>
                   </div>
                 </div>
 
                 {/* Code comment style bio */}
                 <div className="mb-6">
                   <div className="text-left">
-                    <span className="text-gray-500">{"/*"}</span>
+                    <span className="text-gray-600 dark:text-gray-500">{"/*"}</span>
                     <br />
-                    <span className="text-gray-400"> * About: {PROFILE_DATA.bio}</span>
+                    <span className="text-gray-600 dark:text-gray-400"> * About: {PROFILE_DATA.bio}</span>
                     <br />
-                    <span className="text-gray-400"> * Currently: Speedrunning Ethereum & Building dApps</span>
+                    <span className="text-gray-600 dark:text-gray-400">
+                      {" "}
+                      * Currently: Speedrunning Ethereum & Building dApps
+                    </span>
                     <br />
-                    <span className="text-gray-400"> * Learning: ScaffoldETH</span>
+                    <span className="text-gray-600 dark:text-gray-400"> * Learning: ScaffoldETH</span>
                     <br />
-                    <span className="text-gray-500"> {"*/"}</span>
+                    <span className="text-gray-600 dark:text-gray-500"> {"*/"}</span>
                   </div>
                 </div>
 
                 {/* Skills array with forEach */}
                 <div className="mb-6">
-                  <div className="text-left border-l-4 border-blue-500 pl-4 bg-gray-900/50 py-3 rounded-r">
-                    <span className="text-purple-400">console.log</span>(
-                    <span className="text-green-300">&quot;My Skills:&quot;</span>);
+                  <div className="text-left border-l-4 border-blue-500 pl-4 bg-gray-100/50 dark:bg-gray-900/50 py-3 rounded-r">
+                    <span className="text-purple-600 dark:text-purple-400">console.log</span>(
+                    <span className="text-green-600 dark:text-green-300">&quot;My Skills:&quot;</span>);
                     <br />
-                    <span className="text-yellow-400">mySkills</span>
-                    {"."}
-                    <span className="text-blue-400">forEach</span>(<span className="text-orange-400">skill</span> {"=>"}{" "}
-                    <span className="text-purple-400">console.log</span>(
-                    <span className="text-green-300">&quot; - &quot;</span> +{" "}
-                    <span className="text-orange-400">skill</span>));
+                    <div className="flex mb-4">
+                      <span className="text-yellow-600 dark:text-yellow-400">mySkills</span>
+                      {"."}
+                      <span className="text-blue-600 dark:text-blue-400">forEach</span>(
+                      <span className="text-orange-600 dark:text-orange-400">skill</span> {"=>"}{" "}
+                      <span className="text-purple-600 dark:text-purple-400">console.log</span>(
+                      <span className="text-green-600 dark:text-green-300">&quot; - &quot;</span> +{" "}
+                      <span className="text-orange-600 dark:text-orange-400">skill</span>));
+                    </div>
+                    <span className="text-gray-600 dark:text-gray-500">- Full-stack developer</span>
                     <br />
+                    <span className="text-gray-600 dark:text-gray-500">- Web3 builder</span>
                     <br />
-                    <span className="text-gray-500">- Full-stack developer</span>
+                    <span className="text-gray-600 dark:text-gray-500">- Solidity & EVM</span>
                     <br />
-                    <span className="text-gray-500">- Web3 builder</span>
-                    <br />
-                    <span className="text-gray-500">- Solidity & EVM</span>
-                    <br />
-                    <span className="text-gray-500">- Scaffold-ETH</span>
+                    <span className="text-gray-600 dark:text-gray-500">- Scaffold-ETH</span>
                     <br />
                   </div>
                 </div>
@@ -176,9 +181,10 @@ const ProfilePage: NextPage = () => {
                 {/* Terminal style social links */}
                 <div className="mb-6">
                   <div className="text-left">
-                    <span className="text-gray-500">$ </span>
-                    <span className="text-blue-400">ls</span> <span className="text-yellow-400">-la</span>{" "}
-                    <span className="text-gray-400">social_links/</span>
+                    <span className="text-gray-600 dark:text-gray-500">$ </span>
+                    <span className="text-blue-600 dark:text-blue-400">ls</span>{" "}
+                    <span className="text-yellow-600 dark:text-yellow-400">-la</span>{" "}
+                    <span className="text-gray-600 dark:text-gray-400">social_links/</span>
                     <br />
                     <div className="mt-3 space-y-2">
                       {PROFILE_DATA.socialLinks.map(link => {
@@ -189,16 +195,16 @@ const ProfilePage: NextPage = () => {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center gap-3 hover:bg-gray-800/50 p-2 rounded transition-all duration-200 hover:translate-x-2"
+                            className="group flex items-center gap-3 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 p-2 rounded transition-all duration-200 hover:translate-x-2"
                           >
-                            <span className="text-cyan-400">drwxr-xr-x</span>
-                            <span className="text-green-400">mateo</span>
-                            <span className="text-gray-400">web3</span>
-                            <div className="flex items-center gap-2 text-blue-400 group-hover:text-cyan-300">
+                            <span className="text-cyan-600 dark:text-cyan-400">drwxr-xr-x</span>
+                            <span className="text-green-600 dark:text-green-400">mateo</span>
+                            <span className="text-gray-600 dark:text-gray-400">web3</span>
+                            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300">
                               <IconComponent />
                               <span>{link.name.toLowerCase()}_profile</span>
                             </div>
-                            <span className="text-gray-500 text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-gray-600 dark:text-gray-500 text-xs ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                               {/* Click to connect */}
                             </span>
                           </Link>
@@ -209,14 +215,14 @@ const ProfilePage: NextPage = () => {
                 </div>
 
                 {/* Terminal footer */}
-                <div className="mt-6 pt-4 border-t border-gray-800">
+                <div className="mt-6 pt-4 border-t border-gray-300 dark:border-gray-800">
                   <div className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-2 text-gray-500">
-                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <div className="flex items-center gap-2 text-gray-600 dark:text-gray-500">
+                      <span className="w-2 h-2 bg-green-600 dark:bg-green-400 rounded-full animate-pulse"></span>
                       <span>Process: building_web3.exe</span>
                     </div>
-                    <div className="text-gray-400">
-                      <span className="text-cyan-400">[ENTER]</span> to continue...
+                    <div className="text-gray-600 dark:text-gray-400">
+                      <span className="text-cyan-600 dark:text-cyan-400">[ENTER]</span> to continue...
                     </div>
                   </div>
                 </div>
@@ -229,4 +235,4 @@ const ProfilePage: NextPage = () => {
   );
 };
 
-export default ProfilePage;
+export default MateoDi9zProfilePage;
