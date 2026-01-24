@@ -52,7 +52,10 @@ export const CodeHashesVerticalBackground = async () => {
         </div>
       </div>
       <div className="relative h-full w-full bg-transparent">
-        <div className="w-full h-32 bg-gradient-to-t from-green-600/60 dark:from-green-600/70 blur-3xl via-transparent to-transparent opacity-40 animate-gradient-up pointer-events-none" />
+        <div
+          className="w-1/4 h-full bg-gradient-to-r from-green-600/60 dark:from-green-600/70 via-transparent to-transparent opacity-40 animate-gradient-right pointer-events-none"
+          style={{ filter: "blur(192px)" }}
+        />
       </div>
     </div>
   );
