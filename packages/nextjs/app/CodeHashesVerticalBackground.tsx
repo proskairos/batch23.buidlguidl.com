@@ -27,7 +27,7 @@ export const CodeHashesVerticalBackground = async () => {
               <InfiniteVerticalScroll
                 key={`${builder.address}-${index}`}
                 delay={`-${Math.random() * 100}s`}
-                direction={index % 2 === 0 ? "normal" : "reverse"}
+                direction="reverse"
                 duration={duration}
               >
                 <div
@@ -37,6 +37,11 @@ export const CodeHashesVerticalBackground = async () => {
                     textOrientation: "upright",
                     whiteSpace: "nowrap",
                     letterSpacing: "-0.05em",
+                    background:
+                      "linear-gradient(to bottom, rgba(34, 197, 94, 0.4) 0%, currentColor 20%, currentColor 70%, transparent 100%)",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
                   }}
                 >
                   {text} {text} {text} {text} {text} {text} {text} {text}
