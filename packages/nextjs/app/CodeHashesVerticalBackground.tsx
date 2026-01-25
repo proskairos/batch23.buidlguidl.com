@@ -10,6 +10,7 @@ export const CodeHashesVerticalBackground = async () => {
 
   return (
     <div className="absolute r-0 l-0 w-full h-full b-0 t-0 dark:bg-gray-950 bg-gray-300 overflow-hidden -z-10">
+      <div className="absolute r-0 l-0 w-full h-full b-0 t-0 animate-noise" />
       <div
         className="absolute r-0 l-0 w-full h-full b-0 t-0 dark:bg-gray-950 bg-gray-300 overflow-hidden flex"
         style={{

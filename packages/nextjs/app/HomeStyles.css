@@ -41,3 +41,102 @@
 .animate-gradient-up {
   animation: gradientUp 3s ease-in-out infinite;
 }
+
+/* Gradient Right - Background */
+@keyframes gradientRight {
+  0% {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    opacity: 0;
+  }
+  7.5% {
+    opacity: 0.7;
+  }
+  37.5% {
+    opacity: 1.1;
+  }
+  67.5% {
+    opacity: 0.7;
+  }
+  75% {
+    left: 100%;
+    bottom: 0;
+    position: absolute;
+    opacity: 0;
+  }
+  100% {
+    left: 100%;
+    bottom: 0;
+    position: absolute;
+    opacity: 0;
+  }
+}
+.animate-gradient-right {
+  animation: gradientRight 4s ease-in-out infinite;
+}
+
+/* Noise Effect - Background */
+@keyframes noiseEffect {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0%);
+  }
+  70% {
+    transform: translate(0%, 15%);
+  }
+  80% {
+    transform: translate(-15%, 10%);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+}
+
+@keyframes noiseFade {
+  0% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-noise {
+  animation: noiseEffect 0.2s steps(10) infinite, noiseFade 5s ease-out forwards;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 3px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 3px
+  );
+  background-size: 3px 3px;
+  filter: contrast(150%) brightness(120%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
