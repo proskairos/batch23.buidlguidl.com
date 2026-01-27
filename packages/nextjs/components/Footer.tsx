@@ -4,6 +4,7 @@ import { useFetchNativeCurrencyPrice } from "@scaffold-ui/hooks";
 import { hardhat } from "viem/chains";
 import { CurrencyDollarIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import { SwitchCodeDirection } from "~~/components/SwitchCodeDirection";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";
 import { Faucet } from "~~/components/scaffold-eth";
@@ -40,7 +41,10 @@ export const Footer = () => {
               </>
             )}
           </div>
-          <SwitchTheme className={`pointer-events-auto ${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+          <div className="flex flex-col gap-2 pointer-events-auto">
+            <SwitchCodeDirection className={`${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+            <SwitchTheme className={`${isLocalNetwork ? "self-end md:self-auto" : ""}`} />
+          </div>
         </div>
       </div>
       <div className="w-full">
